@@ -18,11 +18,11 @@ Run tests in production using both synthetic and real user data. Test and produc
 
 As part of your test plan, include:
 
--   Automated predeployment testing
--   Fault injection testing
--   Peak load testing
--   Disaster recovery testing
--   Third-party service testing
+- Automated predeployment testing
+- Fault injection testing
+- Peak load testing
+- Disaster recovery testing
+- Third-party service testing
 
 Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 
@@ -30,21 +30,21 @@ Testing is an iterative process. Test the application, measure the outcome, anal
 
 For fault injection testing, check the resiliency of the system during failures, either by triggering actual failures or by simulating them. Here are some strategies to induce failures:
 
--   Shut down virtual machine (VM) instances.
--   Crash processes.
--   Expire certificates.
--   Change access keys.
--   Shut down the DNS service on domain controllers.
--   Limit available system resources, such as RAM or number of threads.
--   Unmount disks.
--   Redeploy a VM.
+- Shut down virtual machine (VM) instances.
+- Crash processes.
+- Expire certificates.
+- Change access keys.
+- Shut down the DNS service on domain controllers.
+- Limit available system resources, such as RAM or number of threads.
+- Unmount disks.
+- Redeploy a VM.
 
 Your test plan should incorporate possible failure points identified during the design phase, in addition to common failure scenarios:
 
--   Test your application in an environment as close as possible to production.
--   Test failures in combination.
--   Measure the recovery times, and be sure that your business requirements are met.
--   Verify that failures don't cascade and are handled in an isolated way.
+- Test your application in an environment as close as possible to production.
+- Test failures in combination.
+- Measure the recovery times, and be sure that your business requirements are met.
+- Verify that failures don't cascade and are handled in an isolated way.
 
 For more information about failure scenarios, see [Disaster recovery for Azure applications](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -64,22 +64,22 @@ Test failover and failback to verify that your application’s dependent service
 
 If you are using [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure).
 
-### Simulation testing 
+### Simulation testing
 
 Simulation testing involves creating small, real-life situations. Simulations demonstrate the effectiveness of the solutions in the recovery plan and highlight any issues that weren’t adequately addressed.
 
 As you perform simulation testing, follow best practices:
 
--   Conduct simulations in a manner that doesn’t disrupt actual business but feels like a real situation.
--   Make sure that simulated scenarios are completely controllable. This means that, even if the recovery plan seems to be failing, you can restore the situation back to normal without causing any significant damage.
--   Inform management about when and how the simulation exercises will be conducted. Your plan should detail the time frame and the resources affected during the simulation.
+- Conduct simulations in a manner that doesn’t disrupt actual business but feels like a real situation.
+- Make sure that simulated scenarios are completely controllable. This means that, even if the recovery plan seems to be failing, you can restore the situation back to normal without causing any significant damage.
+- Inform management about when and how the simulation exercises will be conducted. Your plan should detail the time frame and the resources affected during the simulation.
 
 ## Test health probes for load balancers and traffic managers
 
 Configure and test health probes for your load balancers and traffic managers. Ensure that your health endpoint checks the critical parts of the system and responds appropriately.
 
--   For [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region, the failure of which should trigger a failover to another region.
--   For [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+- For [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region, the failure of which should trigger a failover to another region.
+- For [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).
 

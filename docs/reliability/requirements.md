@@ -19,15 +19,15 @@ Working through the following tasks can help you answer crucial questions and de
 - [Plan for usage patterns](#plan-for-usage-patterns)
 - [Establish availability and recovery metrics](#establish-availability-and-recovery-metrics)
 - [Determine workload availability targets](#determine-workload-availability-targets)
--   [Understand service-level agreements](#understand-service-level-agreements)
+- [Understand service-level agreements](#understand-service-level-agreements)
 
 ## Identify distinct workloads
 
 Cloud solutions typically consist of multiple application *workloads*. A workload is a distinct capability or task that is logically separated from other tasks in terms of business logic and data storage requirements. For example, an e-commerce app has the following workloads:
 
--   Browse and search a product catalog.
--   Create and track orders.
--   View recommendations.
+- Browse and search a product catalog.
+- Create and track orders.
+- View recommendations.
 
 Each workload has different requirements for availability, scalability, data consistency, and disaster recovery. Make your business decisions by balancing cost versus risk for each workload.
 
@@ -37,9 +37,9 @@ You also need to decompose workloads by service-level objective. If a service is
 
 Identify differences in requirements during critical and non-critical periods. Are there certain critical periods when the system must be available? For example, a tax-filing application can't fail during a filing deadline and a video streaming service can’t lag during the big game. These are situations where you weigh cost and risk.
 
--   To ensure uptime and meet service-level agreements (SLAs) in critical periods, plan redundancy across several regions in case one fails, even if it costs more.
--   Conversely, during non-critical periods, run your application in a single region to minimize costs.
--   In some cases, you can mitigate additional expenses by using modern serverless techniques that employ consumption-based billing.
+- To ensure uptime and meet service-level agreements (SLAs) in critical periods, plan redundancy across several regions in case one fails, even if it costs more.
+- Conversely, during non-critical periods, run your application in a single region to minimize costs.
+- In some cases, you can mitigate additional expenses by using modern serverless techniques that employ consumption-based billing.
 
 ## Establish availability and recovery metrics
 
@@ -49,15 +49,15 @@ Create baseline numbers for two sets of metrics as part of the requirements proc
 
 Use these measures to plan for redundancy and determine customer SLAs.
 
--   **Mean time to recover (MTTR)** is the average time it takes to restore a component after a failure.
--   **Mean time between failures (MTBF)** is the runtime a component can reasonably expect between outages.
+- **Mean time to recover (MTTR)** is the average time it takes to restore a component after a failure.
+- **Mean time between failures (MTBF)** is the runtime a component can reasonably expect between outages.
 
 ### Recovery metrics
 
 Derive these values by conducting a risk assessment, and make sure you understand the cost and risk of downtime and data loss. These are nonfunctional requirements of a system and should be dictated by business requirements.
 
--   **Recovery time objective (RTO)** is the maximum acceptable time an application is unavailable after an incident.
--   **Recovery point objective (RPO)** is the maximum duration of data loss that’s acceptable during a disaster.
+- **Recovery time objective (RTO)** is the maximum acceptable time an application is unavailable after an incident.
+- **Recovery point objective (RPO)** is the maximum duration of data loss that’s acceptable during a disaster.
 
 **Note** If the MTTR value of *any* critical component in a highly available setup exceeds the system RTO, a failure in the system might cause an unacceptable business disruption. That is, you can’t restore the system within the defined RTO.
 
@@ -71,11 +71,11 @@ Everything else being equal, higher availability is better. But as you strive fo
 
 Here are some other considerations when defining an SLA:
 
--   To achieve four nines (99.99 percent), you can't rely on manual intervention to recover from failures. The application must be self-diagnosing and self-healing.
--   Beyond four nines, it’s challenging to detect outages quickly enough to meet the SLA.
--   Think about the time window that your SLA is measured against. The smaller the window, the tighter the tolerances. It doesn't make sense to define your SLA in terms of hourly or daily uptime.
--   Consider the MTBF and MTTR measurements. The lower your SLA, the less frequently the service can go down and the quicker the service must recover.
--   Get agreement from your customers for the availability targets of each piece of your application, and document it. Otherwise, your design may not meet the customers’ expectations.
+- To achieve four nines (99.99 percent), you can't rely on manual intervention to recover from failures. The application must be self-diagnosing and self-healing.
+- Beyond four nines, it’s challenging to detect outages quickly enough to meet the SLA.
+- Think about the time window that your SLA is measured against. The smaller the window, the tighter the tolerances. It doesn't make sense to define your SLA in terms of hourly or daily uptime.
+- Consider the MTBF and MTTR measurements. The lower your SLA, the less frequently the service can go down and the quicker the service must recover.
+- Get agreement from your customers for the availability targets of each piece of your application, and document it. Otherwise, your design may not meet the customers’ expectations.
 
 ### Identify dependencies
 
@@ -93,7 +93,6 @@ Potential cumulative downtime for various SLA levels are shown in the following 
 | 99.99%  | 1.01 minutes          | 4.32 minutes           | 52.56 minutes         |
 | 99.999% | 6 seconds             | 25.9 seconds           | 5.26 minutes          |
 
-
 ## Understand service-level agreements
 
 In Azure, the [service-level agreement](https://azure.microsoft.com/en-us/support/legal/sla/) describes the Microsoft commitments for uptime and connectivity. If the SLA for a service is 99.9 percent, you should expect the service to be available 99.9 percent of the time. Different services have different SLAs.
@@ -104,8 +103,8 @@ In Azure, the [service-level agreement](https://azure.microsoft.com/en-us/suppor
 
 *Composite SLAs* involve multiple services supporting an application, each with differing levels of availability. For example, an App Service web app that writes to Azure SQL Database has two Azure services with differing SLAs:
 
--   App Service web apps = 99.95%
--   SQL Database = 99.99%
+- App Service web apps = 99.95%
+- SQL Database = 99.99%
 
 What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. The probability of each service failing is independent, so the composite SLA for this application is 99.95% × 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising because an application that relies on multiple services has more potential failure points.
 
@@ -115,11 +114,11 @@ You can improve the composite SLA by creating independent fallback paths. For ex
 
 With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is:
 
--   Database *or* queue = 1.0 − (0.0001 × 0.001) = 99.99999%
+- Database *or* queue = 1.0 − (0.0001 × 0.001) = 99.99999%
 
 The total composite SLA is:
 
--   Web app *and* (database *or* queue) = 99.95% × 99.99999% = \~99.95%
+- Web app *and* (database *or* queue) = 99.95% × 99.99999% = \~99.95%
 
 There are tradeoffs to this approach. The application logic is more complex, you are paying for the queue, and you need to consider data consistency issues.
 
@@ -129,12 +128,12 @@ There are tradeoffs to this approach. The application logic is more complex, you
 
 The composite SLA for a multiregion deployment is calculated as follows:
 
--   *N* is the composite SLA for the application deployed in one region.
--   *R* is the number of regions where the application is deployed.
+- *N* is the composite SLA for the application deployed in one region.
+- *R* is the number of regions where the application is deployed.
 
 The expected chance that the application fails in all regions at the same time is ((1 − N) \^ R). For example, if the single-region SLA is 99.95%:
 
--   The combined SLA for two regions = (1 − (0.9995 \^ 2)) = 99.999975%
--   The combined SLA for four regions = (1 − (0.9995 \^ 4)) = 99.999999%
+- The combined SLA for two regions = (1 − (0.9995 \^ 2)) = 99.999975%
+- The combined SLA for four regions = (1 − (0.9995 \^ 4)) = 99.999999%
 
 The [SLA for Traffic Manager](https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring).

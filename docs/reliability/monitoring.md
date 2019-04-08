@@ -23,18 +23,18 @@ It’s not practical to monitor your application directly, so instrumentation is
 
 Provide rich instrumentation:
 
--   For failures that are likely but have not yet occurred, provide enough data to determine the cause, mitigate the situation, and ensure that the system remains available.
--   For failures that have already occurred, the application should return an appropriate error message to the user but should attempt to continue running, albeit with reduced functionality.
+- For failures that are likely but have not yet occurred, provide enough data to determine the cause, mitigate the situation, and ensure that the system remains available.
+- For failures that have already occurred, the application should return an appropriate error message to the user but should attempt to continue running, albeit with reduced functionality.
 
 Monitoring systems should capture comprehensive details so that applications can be restored efficiently and, if necessary, designers and developers can modify the system to prevent the situation from recurring.
 
 The raw data for monitoring can come from a variety of sources, including:
 
--   Application logs, such as those produced by the [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) service.
--   Operating system performance metrics collected by [Azure monitoring agents](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agents-overview).
--   [Azure resources](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
--   [Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
--   [Azure tenants](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
+- Application logs, such as those produced by the [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) service.
+- Operating system performance metrics collected by [Azure monitoring agents](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agents-overview).
+- [Azure resources](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported), including metrics collected by Azure Monitor.
+- [Azure Service Health](https://docs.microsoft.com/en-us/azure/service-health/service-health-overview), which offers a dashboard to help you track active events.
+- [Azure tenants](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) built into the Azure platform.
 
 Most Azure services have metrics and diagnostics that you can configure to analyze and determine the cause of problems. To learn more, see [Monitoring data collected by Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection).
 
@@ -42,9 +42,9 @@ Most Azure services have metrics and diagnostics that you can configure to a
 
 Raw instrumentation data can be held in various locations and formats, including:
 
--   Application trace logs
--   IIS logs
--   Performance counters
+- Application trace logs
+- IIS logs
+- Performance counters
 
 These disparate sources are collected, consolidated, and placed in reliable data stores in Azure, such as Application Insights, Azure Monitor metrics, Service Health, storage accounts, and Azure Log Analytics.
 
@@ -113,9 +113,9 @@ Track the number of transient exceptions and retries over time to uncover issues
 
 Monitor your application for warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system.
 
-1.  Identify the key performance indicators of your application's health, such as transient exceptions and remote call latency.
-2.  Set thresholds at levels that identify issues before they become critical and require a recovery response.
-3.  Send an alert to operations when the threshold value is reached.
+1. Identify the key performance indicators of your application's health, such as transient exceptions and remote call latency.
+1. Set thresholds at levels that identify issues before they become critical and require a recovery response.
+1. Send an alert to operations when the threshold value is reached.
 
 **Tip** Consider [Microsoft System Center 2016](https://www.microsoft.com/cloud-platform/system-center) or third-party tools to provide monitoring capabilities. Most monitoring solutions track key performance counters and service availability. [Azure resource health](https://docs.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types) provides some out-of-the-box health status checks, which can help diagnose throttling of Azure services.
 

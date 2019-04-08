@@ -64,7 +64,7 @@ All deployment tools must incorporate security restrictions to protect the deplo
 
 An application that depends on a single instance of a service creates a single point of failure. To improve resiliency and scalability, provision multiple instances.
 
-- For [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-value-prop-what-is/), select an [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. 
+- For [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-value-prop-what-is/), select an [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances.
 - For [Azure Cloud Services](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-choose-me), configure each of your roles to use [multiple instances](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-choose-me/#scaling-and-management).
 - For [Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-manage-availability/).
 

@@ -619,15 +619,11 @@
     - name: Monitor application health
       href: reliability/monitoring.md
     - name: Respond to failures and disasters
-      href: reliability/disaster-recover.md
+      href: reliability/disaster-recovery.md
     - name: Resiliency checklist for Azure services
       href: checklist/resiliency-per-service.md
     - name: Failure mode analysis
       href: resiliency/failure-mode-analysis.md
-    - name: Recover from data corruption or accidental deletion
-      href: resiliency/recovery-data-corruption.md
-    - name: Recover from a region-wide service disruption
-      href: resiliency/recovery-loss-azure-region.md
 
   - name: DevOps checklist
     href: checklist/dev-ops.md
@@ -639,6 +635,16 @@
     href: resiliency/index.md
   - name: RETIRE - Availability checklist
     href: checklist/availability.md
+  - name: RETIRE - Disaster recovery for Azure applications
+    href: resiliency/disaster-recovery-azure-applications.md
+  - name: RETIRE - Recover from data corruption or accidental deletion
+    href: resiliency/recovery-data-corruption.md
+  - name: RETIRE - Recovery from local failures in Azure
+    href: resiliency/recovery-local-failures.md
+  - name: RETIRE - Recover from a region-wide service disruption
+    href: resiliency/recovery-loss-azure-region.md
+  - name: RETIRE - Recovery from on-premises to Azure
+    href: resiliency/recovery-on-premises-azure.md
 
 - name: Cloud Adoption Framework
   items:

@@ -620,25 +620,25 @@
       href: reliability/monitoring.md
     - name: Respond to failures and disasters
       href: reliability/disaster-recover.md
+    - name: Resiliency checklist for Azure services
+      href: checklist/resiliency-per-service.md
+    - name: Failure mode analysis
+      href: resiliency/failure-mode-analysis.md
     - name: Recover from data corruption or accidental deletion
       href: resiliency/recovery-data-corruption.md
     - name: Recover from a region-wide service disruption
       href: resiliency/recovery-loss-azure-region.md
-    - name: Resiliency checklist for Azure services
-      href: checklist/resiliency-per-service.md
 
-  - name: RETIRE - Design for resiliency
-    href: resiliency/index.md
-  - name: Failure mode analysis
-    href: resiliency/failure-mode-analysis.md
-  - name: RETIRE - Availability checklist
-    href: checklist/availability.md
   - name: DevOps checklist
     href: checklist/dev-ops.md
-  - name: RETIRE - Resiliency checklist (general)
-    href: checklist/resiliency.md
   - name: Scalability checklist
     href: checklist/scalability.md
+  - name: RETIRE - Resiliency checklist (general)
+    href: checklist/resiliency.md
+  - name: RETIRE - Design for resiliency
+    href: resiliency/index.md
+  - name: RETIRE - Availability checklist
+    href: checklist/availability.md
 
 - name: Cloud Adoption Framework
   items:

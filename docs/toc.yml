@@ -604,18 +604,39 @@
 
 - name: Design Review Framework
   items:
-  - name: Design for resiliency
+  - name: Design reliable Azure applications
+    items:
+    - name: Overview
+      href: reliability/index.md
+    - name: Define requirements
+      href: reliability/requirements.md
+    - name: Use architectural best practices
+      href: reliability/architect.md
+    - name: Test for reliability
+      href: reliability/test.md
+    - name: Deploy consistently
+      href: reliability/deploy.md
+    - name: Monitor application health
+      href: reliability/monitoring.md
+    - name: Respond to failures and disasters
+      href: reliability/disaster-recover.md
+    - name: Recover from data corruption or accidental deletion
+      href: resiliency/recovery-data-corruption.md
+    - name: Recover from a region-wide service disruption
+      href: resiliency/recovery-loss-azure-region.md
+    - name: Resiliency checklist for Azure services
+      href: checklist/resiliency-per-service.md
+
+  - name: RETIRE - Design for resiliency
     href: resiliency/index.md
   - name: Failure mode analysis
     href: resiliency/failure-mode-analysis.md
-  - name: Availability checklist
+  - name: RETIRE - Availability checklist
     href: checklist/availability.md
   - name: DevOps checklist
     href: checklist/dev-ops.md
-  - name: Resiliency checklist (general)
+  - name: RETIRE - Resiliency checklist (general)
     href: checklist/resiliency.md
-  - name: Resiliency checklist (Azure services)
-    href: checklist/resiliency-per-service.md
   - name: Scalability checklist
     href: checklist/scalability.md
 

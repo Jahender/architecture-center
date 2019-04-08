@@ -106,7 +106,7 @@ a recoverable error, but nonrecoverable errors will bring down the application.
 
 A well-designed system separates responsibilities at the service level—at design time and at runtime. This prevents a dependent service disruption from bringing down the entire application. For example, consider a web commerce application with the following modules:
 
-![ADD LINK TO ART](./_images/)
+![ADD LINK TO ART](./_images/disaster-recovery.png)
 
 If the database for hosting orders goes down, the Order Processing service can’t process sales transactions. Depending on the architecture, it might be difficult or impossible for the Order Submission and Order Processing services to continue. However, if the product data is stored in a different location, the Product Catalog is still available for viewing products, even though other parts of the application, such as ordering and inventory queries, might be
 unavailable.

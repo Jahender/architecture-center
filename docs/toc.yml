@@ -613,7 +613,7 @@
     - name: Use architectural best practices
       href: reliability/architect.md
     - name: Test for reliability
-      href: reliability/test.md
+      href: reliability/testing.md
     - name: Deploy consistently
       href: reliability/deploy.md
     - name: Monitor application health

@@ -20,7 +20,7 @@ Reliable applications are:
 
 Understanding how these elements work together—and how they affect cost—is essential to building a reliable application. It can help you determine how much downtime is acceptable, the potential cost to your business, and which functions are necessary during a recovery.
 
-**Note** This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you’re looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service).
+**Note** This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you’re looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../checklist/resiliency-per-service.md).
 
 ## Build for reliability
 
@@ -48,7 +48,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
     Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can’t be a single point of failure in the system.
 
-For tips and best practices for developing requirements for reliable applications, see [Developing requirements for resilient Azure applications](requirements.md).
+For tips and best practices for developing requirements for reliable applications, see [Developing requirements for resilient Azure applications](./requirements.md).
 
 ## Employ architectural best practices
 
@@ -140,6 +140,6 @@ Consider your VMs, storage, Azure SQL Database, and other Azure platform service
 - **Recover from a network outage.** You might be able to use cached data to run locally with reduced application functionality. If not, consider application downtime or fail over to another region. Store your data in an alternate location until connectivity is restored.
 - **Recover from a dependent service failure.** Determine which functionality is still available and how the application should respond.
 - **Recover from a region-wide service disruption.** Region-wide service disruptions are uncommon, but you should have a strategy to address them, especially for critical applications. You might be able to redeploy the application to another region or redistribute traffic.
-- **Include service-specific guidance in your recovery plans.** [Explore links to specific services and disaster recovery.](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications#service-specific-guidance)
+- **Include service-specific guidance in your recovery plans.** [Explore links to specific services and disaster recovery.](../resiliency/disaster-recovery-azure-applications.md#service-specific-guidance)
 
 For tips and best practices for responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](disaster-recovery.md).

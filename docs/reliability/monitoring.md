@@ -59,7 +59,7 @@ Present telemetry data in in a format that makes it easy for an operator to noti
 
 **Tip** Get a full-stack view of application state by using [Azure dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health. And use [Azure Monitor alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview) to create notifications on Service Health, resource health, Azure Monitor metrics, logs in Log Analytics, and Application Insights.
 
-For more information about monitoring and diagnostics, see [Monitoring and diagnostics](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring).
+For more information about monitoring and diagnostics, see [Monitoring and diagnostics](../best-practices/monitoring.md).
 
 ## Health probes and check functions
 
@@ -75,7 +75,7 @@ Long-running workflows often include multiple steps, each of which should be ind
 
 Track the progress of long-running processes to minimize the likelihood that the entire workflow will need to be rolled back or that multiple compensating transactions will need to be executed.
 
-**Tip** Monitor and manage the progress of long-running workflows by implementing a pattern, such as an [Azure Scheduler Agent Supervisor pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/scheduler-agent-supervisor).
+**Tip** Monitor and manage the progress of long-running workflows by implementing a pattern, such as an [Azure Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 ## Application logs
 
@@ -107,7 +107,7 @@ Track and report remote call statistics in real time and provide an easy way to 
 
 ## Transient exceptions and retries
 
-Track the number of transient exceptions and retries over time to uncover issues or failures in your application's retry logic. A trend of increasing exceptions over time may indicate that the service is having an issue and may fail. For more information, see [Retry service specific guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific).
+Track the number of transient exceptions and retries over time to uncover issues or failures in your application's retry logic. A trend of increasing exceptions over time may indicate that the service is having an issue and may fail. For more information, see [Retry service specific guidance](../architecture/best-practices/retry-service-specific.md).
 
 ## Early warning system
 
@@ -161,4 +161,4 @@ If your Azure SQL Database tier isn’t adequate to handle your application's Da
 If your application has dependencies on third-party services, identify where and how these services can fail and what effect those failures will have on your application.
 
 A third-party service may not include monitoring and diagnostics, so log your invocations of them and correlate them with your application's health and
-diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring).
+diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../best-practices/monitoring.md).

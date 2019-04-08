@@ -46,7 +46,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
-For more information about failure scenarios, see [Disaster recovery for Azure applications](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications).
+For more information about failure scenarios, see [Disaster recovery for Azure applications](../resiliency/disaster-recovery-azure-applications.md).
 
 ## Test under peak loads
 
@@ -81,7 +81,7 @@ Configure and test health probes for your load balancers and traffic managers. E
 - For [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region, the failure of which should trigger a failover to another region.
 - For [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
 
-For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring).
+For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 ## Test monitoring systems
 
@@ -91,4 +91,4 @@ Include monitoring systems in your test plan. Automated failover and failback sy
 
 If your application has dependencies on third-party services, identify where and how these services can fail and what effect those failures will have on your application. Keep in mind the service-level agreement (SLA) for the third-party service and the effect it might have on your disaster recovery plan.
 
-A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and to correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring).
+A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and to correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../best-practices/monitoring.md).

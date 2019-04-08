@@ -290,7 +290,7 @@ Your response to a region-wide service disruption depends on your deployment and
 - For applications that have a full-scale secondary deployment in another
     region (*active/active deployment*), route traffic to that region.
 
-To learn more about recovering from a region-wide service disruption, see [Azure resiliency technical guidance: recovery from a region-wide service disruption](https://docs.microsoft.com/en-us/azure/architecture/resiliency/recovery-loss-azure-region).
+To learn more about recovering from a region-wide service disruption, see [Recover from a region-wide service disruption](../resiliency/recovery-loss-azure-region.md).
 
 ### VM recovery
 
@@ -304,7 +304,7 @@ disruption.
     failover and failover testing.
 - Use Traffic Manager to automate user traffic failover to another region.
 
-To learn more, see [Azure resiliency technical guidance: recovery from a region-wide service disruption, Virtual machines](https://docs.microsoft.com/en-us/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines).
+To learn more, see [Recover from a region-wide service disruption, Virtual machines](../resiliency/recovery-loss-azure-region.md#virtual-machines).
 
 ### Storage recovery
 

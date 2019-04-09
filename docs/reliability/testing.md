@@ -13,8 +13,7 @@ ms.custom:
 
 To test resiliency, you should verify how the end-to-end workload performs under intermittent failure conditions.
 
-Run tests in production using both synthetic and real user data. Test and production are rarely identical, so it's important to validate your application in production using a
-[blue-green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). This way, you’re testing the application in production under real conditions, so you can ensure that it will function as expected when fully deployed.
+Run tests in production using both synthetic and real user data. Test and production are rarely identical, so it's important to validate your application in production using a [blue-green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). This way, you’re testing the application in production under real conditions, so you can ensure that it will function as expected when fully deployed.
 
 As part of your test plan, include:
 

@@ -92,8 +92,7 @@ For tips and best practices for testing for application reliability, see [Testin
 
 ## Deploy the application consistently
 
-*Deployment* includes provisioning Azure resources, deploying application code, and applying configuration settings. An update may involve all three tasks or a
-subset of them.
+*Deployment* includes provisioning Azure resources, deploying application code, and applying configuration settings. An update may involve all three tasks or a subset of them.
 
 After an application is deployed to production, updates are a possible source of errors. Minimize errors with predictable and repeatable deployment processes.
 
@@ -129,8 +128,7 @@ For tips and best practices for monitoring for application reliability, see [Mon
 
 ## Respond to failures and disasters
 
-Create a recovery plan, and make sure that it covers data restoration, network outages, dependent service failures, and region-wide service disruptions.
-Consider your VMs, storage, Azure SQL Database, and other Azure platform services in your recovery strategy.
+Create a recovery plan, and make sure that it covers data restoration, network outages, dependent service failures, and region-wide service disruptions. Consider your VMs, storage, Azure SQL Database, and other Azure platform services in your recovery strategy.
 
 - **Plan for Azure support interactions.** Before the need arises, establish a process for contacting Azure support.
 - **Document and test your disaster recovery plan.** Write a disaster recovery plan that reflects the business impact of application failures. Automate the recovery process as much as possible, and document any manual steps. Regularly test your disaster recovery process to validate and improve the plan.

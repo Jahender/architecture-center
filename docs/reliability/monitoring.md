@@ -50,8 +50,7 @@ These disparate sources are collected, consolidated, and placed in reliable data
 
 ## Analysis and diagnosis
 
-Analyze data consolidated in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can [search for and analyze](/azure/azure-monitor/log-query/log-query-overview) the data in Application Insights and Log Analytics using Kusto queries or view preconfigured graphs using [management solutions](/azure/azure-monitor/insights/solutions-inventory). Or use Azure Advisor to view recommendations with a focus on
-[resiliency](/azure/advisor/advisor-high-availability-recommendations) and [performance](/azure/advisor/advisor-performance-recommendations).
+Analyze data consolidated in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can [search for and analyze](/azure/azure-monitor/log-query/log-query-overview) the data in Application Insights and Log Analytics using Kusto queries or view preconfigured graphs using [management solutions](/azure/azure-monitor/insights/solutions-inventory). Or use Azure Advisor to view recommendations with a focus on [resiliency](/azure/advisor/advisor-high-availability-recommendations) and [performance](/azure/advisor/advisor-performance-recommendations).
 
 ## Visualization and alerts
 
@@ -133,24 +132,19 @@ Depending on the specific service and your application requirements, you can oft
 
 ### Azure storage scalability and performance targets
 
-Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your
-subscription, create a new subscription with additional storage accounts. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
+Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
 
 If you exceed Azure storage scalability and performance targets, your application will experience storage throttling. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets/).
 
 ### Scalability targets for virtual machine disks
 
-An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of
-storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual
-machine disks there. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks).
+An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks).
 
 ### VM size
 
-If the actual CPU, memory, disk, and I/O of your VMs in production approach the limits of the VM size you've selected, your application may experience capacity
-issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](/azure/virtual-machines/virtual-machines-windows-sizes/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If the actual CPU, memory, disk, and I/O of your VMs in production approach the limits of the VM size you've selected, your application may experience capacity issues. To correct the issues, increase the VM size. VM sizes are described in [Sizes for virtual machines in Azure](/azure/virtual-machines/virtual-machines-windows-sizes/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-If your workload fluctuates over time, consider using Azure VM scale sets to automatically scale the number of VM instances. Otherwise, you need to manually
-increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/).
+If your workload fluctuates over time, consider using Azure VM scale sets to automatically scale the number of VM instances. Otherwise, you need to manually increase or decrease the number of VMs. For more information, see the [virtual machine scale sets overview](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/).
 
 ### Azure SQL Database 
 
@@ -160,5 +154,4 @@ If your Azure SQL Database tier isn’t adequate to handle your application's Da
 
 If your application has dependencies on third-party services, identify where and how these services can fail and what effect those failures will have on your application.
 
-A third-party service may not include monitoring and diagnostics, so log your invocations of them and correlate them with your application's health and
-diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../best-practices/monitoring.md).
+A third-party service may not include monitoring and diagnostics, so log your invocations of them and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and diagnostics guidance](../best-practices/monitoring.md).

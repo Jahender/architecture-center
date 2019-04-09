@@ -64,8 +64,7 @@ Azure has a number of redundancy features at every level of failure, from an ind
     **Note** During testing, verify that the *recovery time objective* (RTO) and *recovery point objective* (RPO) metrics for your application meet your needs. RTO is the maximum acceptable time an application is unavailable after an incident, and RPO is the maximum acceptable duration of data loss during a disaster.
 - **Paired regions** are created using Azure Traffic Manager to distribute Internet traffic to different regions, protecting an application against a regional outage. Each Azure region is paired with another region. Together, these form a [*regional pair*](/azure/best-practices-availability-paired-regions). To meet data residency requirements for tax and law enforcement jurisdiction purposes, regional pairs are located within the same geography (with the exception of Brazil South).
 
-    To improve application resiliency, Azure serializes platform updates
-    (planned maintenance) across each region pair, so only one paired region is
+    To improve application resiliency, Azure serializes platform updates (planned maintenance) across each region pair, so only one paired region is
     updated at a time.
 - When you design a multiregion application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region but asynchronous data replication across regions.
 
@@ -114,8 +113,7 @@ With those Azure features defined, you can move forward with the following tasks
 
 ## Determine subscription and service requirements
 
-Choose the right subscription and service features for your app by working
-through these tasks:
+Choose the right subscription and service features for your app by working through these tasks:
 
 - **Evaluate requirements against [Azure subscription and service limits](/azure/azure-subscription-service-limits/).** *Azure subscriptions* have limits on certain resource types, such as number of resource groups, cores, and storage accounts. If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there. Individual Azure services have consumption limits—for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits, resulting in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (such as adding new instances).
 - **Determine how many storage accounts you need.** Azure allows a specific number of storage accounts per subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits/#storage-limits).
@@ -154,10 +152,10 @@ The tasks in this section can help you design some common resiliency strategies.
     Here are some examples of this technique, which is sometimes called the [Bulkhead pattern](../patterns/bulkhead.md):
 
   - Partition a database (for example, by tenant), and assign a separate pool of web server instances for each partition.
-    - Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library](https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362).
-    - Use [containers](https://en.wikipedia.org/wiki/Operating-system-level_virtualization) to limit the resources available to a particular subsystem.
+  - Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library](https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362).
+  - Use [containers](https://en.wikipedia.org/wiki/Operating-system-level_virtualization) to limit the resources available to a particular subsystem.
 
-        ![Diagram of the Bulkhead pattern](_images/bulkhead.png)
+      ![Diagram of the Bulkhead pattern](_images/bulkhead.png)
 
 - **Apply [*compensating transactions*](../patterns/compensating-transaction.md).** These are transactions that undo the effects of another completed transaction. In a distributed system, it can be difficult to achieve strong transactional consistency. Compensating transactions can help to achieve consistency by using a series of smaller, individual transactions that can be undone at each step. For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If one of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step.
 - **Implement asynchronous operations, whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations, whenever possible. For more information on how to implement asynchronous programming in C\#, see [Asynchronous Programming with keywords **async** and **await**](/dotnet/articles/csharp/async).
@@ -219,5 +217,4 @@ How you manage your data plays directly into the availability of your applicatio
 - **Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and will have varied availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage redundancy](/azure/storage/storage-redundancy/) and [SQL Database active geo-replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. If you replicate Azure VMs using [Site Recovery](/azure/site-recovery/), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes.
 - **Establish data strategies for disaster recovery.** Proper data handling is a challenging aspect of any disaster recovery plan. During the recovery process, data restoration typically takes the most time. Different choices for reducing functionality result in difficult challenges for data recovery from failure and for consistency after failure.  
 
-    One consideration is the need to restore or maintain a copy of the application’s data. This data is used for reference and transactional purposes at a secondary site. An on-premises deployment requires an expensive and lengthy planning process to implement a multiregion disaster recovery strategy. Conveniently, most cloud providers, including Azure, readily allow the deployment of applications to multiple regions. These regions are geographically distributed in such a way that multiregion
-    service disruption should be extremely rare. The strategy for handling data across regions is one of the contributing factors for the success of any disaster recovery plan.
+    One consideration is the need to restore or maintain a copy of the application’s data. This data is used for reference and transactional purposes at a secondary site. An on-premises deployment requires an expensive and lengthy planning process to implement a multiregion disaster recovery strategy. Conveniently, most cloud providers, including Azure, readily allow the deployment of applications to multiple regions. These regions are geographically distributed in such a way that multiregion service disruption should be extremely rare. The strategy for handling data across regions is one of the contributing factors for the success of any disaster recovery plan.

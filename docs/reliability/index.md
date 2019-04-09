@@ -140,6 +140,6 @@ Consider your VMs, storage, Azure SQL Database, and other Azure platform service
 - **Recover from a network outage.** You might be able to use cached data to run locally with reduced application functionality. If not, consider application downtime or fail over to another region. Store your data in an alternate location until connectivity is restored.
 - **Recover from a dependent service failure.** Determine which functionality is still available and how the application should respond.
 - **Recover from a region-wide service disruption.** Region-wide service disruptions are uncommon, but you should have a strategy to address them, especially for critical applications. You might be able to redeploy the application to another region or redistribute traffic.
-- **Include service-specific guidance in your recovery plans.** [Explore links to specific services and disaster recovery.](../resiliency/disaster-recovery-azure-applications.md#service-specific-guidance)
+- **Include service-specific guidance in your recovery plans.** [Explore links to specific services and disaster recovery.](./disaster-recovery.md#service-specific-guidance)
 
 For tips and best practices for responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](./disaster-recovery.md).

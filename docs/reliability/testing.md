@@ -46,7 +46,7 @@ Your test plan should incorporate possible failure points identified during the 
 - Measure the recovery times, and be sure that your business requirements are met.
 - Verify that failures don't cascade and are handled in an isolated way.
 
-For more information about failure scenarios, see [Disaster recovery for Azure applications](../resiliency/disaster-recovery-azure-applications.md).
+For more information about failure scenarios, see [Failure and disaster recovery for Azure applications](./disaster-recovery.md).
 
 ## Test under peak loads
 

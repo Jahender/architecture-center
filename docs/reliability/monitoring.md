@@ -11,7 +11,7 @@ ms.custom:
 
 # Monitoring Azure application health
 
-Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know *that* it failed, *when* it failed—and *why*.
+Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know *that* it failed, *when* it failed &mdash; and *why*.
 
 *Monitoring* is not the same as *failure detection*. For example, your application might detect a transient error and retry, thereby avoiding downtime. But it should also log the retry operation so that you can monitor the error rate to get an overall picture of application health.
 
@@ -19,7 +19,7 @@ Think of the monitoring and diagnostics process as a pipeline with four distinct
 
 ## Instrumentation
 
-It’s not practical to monitor your application directly, so instrumentation is key. A large-scale distributed system might run on dozens of virtual machines (VMs), which are added and removed over time. Likewise, a cloud application might use a number of data stores and a single user action might span multiple subsystems.
+It's not practical to monitor your application directly, so instrumentation is key. A large-scale distributed system might run on dozens of virtual machines (VMs), which are added and removed over time. Likewise, a cloud application might use a number of data stores and a single user action might span multiple subsystems.
 
 Provide rich instrumentation:
 
@@ -90,7 +90,7 @@ Include a correlation ID that flows across service boundaries. If a transaction 
 
 ### Use semantic (structured) logging
 
-With structured logs, it’s easier to automate the consumption and analysis of the log data, which is especially important at cloud scale. Generally, we recommend storing Azure resources metrics and diagnostics data in a Log Analytics workspace rather than in a storage account. This way, you can use Kusto queries to obtain the data you want quickly and in a structured format. Alternatively, you can utilize Azure Monitor APIs and Azure Log Analytics APIs.
+With structured logs, it's easier to automate the consumption and analysis of the log data, which is especially important at cloud scale. Generally, we recommend storing Azure resources metrics and diagnostics data in a Log Analytics workspace rather than in a storage account. This way, you can use Kusto queries to obtain the data you want quickly and in a structured format. Alternatively, you can utilize Azure Monitor APIs and Azure Log Analytics APIs.
 
 ### Use asynchronous logging
 
@@ -120,7 +120,7 @@ Monitor your application for warning signs that might require proactive interven
 
 ## Subscription and service limitations
 
-Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure that your application doesn’t run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
+Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure that your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
 
 Address the following subscription limits with alerts.
 
@@ -148,7 +148,7 @@ If your workload fluctuates over time, consider using Azure VM scale sets to aut
 
 ### Azure SQL Database 
 
-If your Azure SQL Database tier isn’t adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers/).
+If your Azure SQL Database tier isn't adequate to handle your application's Database Transaction Unit (DTU) requirements, your data use will be throttled. For more information on selecting the correct service plan, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers/).
 
 ## Third-party services
 

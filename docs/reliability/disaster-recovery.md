@@ -18,7 +18,7 @@ Your tolerance for reduced functionality during a disaster is a business decisio
 ## Disaster recovery plan
 
 Start by creating a recovery plan. It is considered complete after it has been fully tested. Include the people, processes, and supporting applications in
-place to restore partial or full functionality within the service-level agreement (SLA) you’ve defined for your customers.
+place to restore partial or full functionality within the service-level agreement (SLA) you've defined for your customers.
 
 Consider the following suggestions when creating and testing your disaster recovery plan:
 
@@ -72,11 +72,11 @@ Application failures are either recoverable or nonrecoverable. You can mitigate 
 - With some errors, the application can continue handling user requests with reduced functionality.
 - More severe service disruptions might render the application unavailable.
 
-A well-designed system separates responsibilities at the service level—at design time and at runtime. This prevents a dependent service disruption from bringing down the entire application. For example, consider a web commerce application with the following modules:
+A well-designed system separates responsibilities at the service level &mdash; at design time and at runtime. This prevents a dependent service disruption from bringing down the entire application. For example, consider a web commerce application with the following modules:
 
 ![ADD LINK TO ART](./_images/disaster-recovery.png)
 
-If the database for hosting orders goes down, the Order Processing service can’t process sales transactions. Depending on the architecture, it might be difficult or impossible for the Order Submission and Order Processing services to continue. However, if the product data is stored in a different location, the Product Catalog is still available for viewing products, even though other parts of the application, such as ordering and inventory queries, might be unavailable.
+If the database for hosting orders goes down, the Order Processing service can't process sales transactions. Depending on the architecture, it might be difficult or impossible for the Order Submission and Order Processing services to continue. However, if the product data is stored in a different location, the Product Catalog is still available for viewing products, even though other parts of the application, such as ordering and inventory queries, might be unavailable.
 
 It's up to you to determine how the application will inform users of any temporary problems and to build appropriate notifications into the system. In the previous example, the application might allow for viewing products and for adding them to a shopping cart. However, when the customer attempts to make a purchase, the application should notify them that the ordering functionality is temporarily unavailable. This isn't ideal for the customer, but it prevents an application-wide service disruption.
 
@@ -111,7 +111,7 @@ You have two options for managing potential data corruption or deletion:
 
 You can develop a custom backup process for Azure Storage or use one of many third-party backup tools.
 
-Azure Storage provides data resiliency through automated replicas, but it doesn’t prevent application code or users from corrupting data. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log. You have several options:
+Azure Storage provides data resiliency through automated replicas, but it doesn't prevent application code or users from corrupting data. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log. You have several options:
 
 - [**Block blobs.**](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) Create a point-in-time snapshot of each block blob. For each snapshot, you are charged only for the storage required to store the differences within the blob since the previous snapshot state. The snapshots are dependent on the original blob they are based on, so we recommend copying to another blob or even to another storage account. This ensures that backup data is protected against accidental deletion. Use [AzCopy](/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
 
@@ -160,11 +160,11 @@ To protect Azure Virtual Machines from application errors or accidental deletion
 
 When parts of the Azure network are inaccessible, you might not be able to access your application or data. In this situation, we recommend designing the disaster recovery strategy to run most applications with reduced functionality.
 
-If reducing functionality isn’t an option, the remaining options are application downtime or failover to an alternate region.
+If reducing functionality isn't an option, the remaining options are application downtime or failover to an alternate region.
 
 In a reduced functionality scenario:
 
-- If your application can’t access its data because of an Azure network outage, you might be able to run locally with reduced application functionality by using cached data.
+- If your application can't access its data because of an Azure network outage, you might be able to run locally with reduced application functionality by using cached data.
 - You might be able to store data in an alternate location until connectivity is restored.
 
 ## Dependent service failure
@@ -173,14 +173,14 @@ For each dependent service, you should understand the implications of a service 
 
 ## Region-wide service disruptions
 
-Many failures are manageable within the same Azure region. However, in the unlikely event of a region-wide service disruption, the locally redundant copies of your data aren’t available. If you’ve enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all the DNS entries to the secondary region.
+Many failures are manageable within the same Azure region. However, in the unlikely event of a region-wide service disruption, the locally redundant copies of your data aren't available. If you've enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all the DNS entries to the secondary region.
 
 **Note** This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
 
 Your response to a region-wide service disruption depends on your deployment and your disaster recovery plan.
 
-- As a cost-control strategy, for non-critical applications that don’t require a guaranteed recovery time, it might make sense to redeploy to a different region.
-- For applications that are hosted in another region with deployed roles but don’t distribute traffic across regions (*active/passive deployment*), switch to the secondary hosted service in the alternate region.
+- As a cost-control strategy, for non-critical applications that don't require a guaranteed recovery time, it might make sense to redeploy to a different region.
+- For applications that are hosted in another region with deployed roles but don't distribute traffic across regions (*active/passive deployment*), switch to the secondary hosted service in the alternate region.
 - For applications that have a full-scale secondary deployment in another region (*active/active deployment*), route traffic to that region.
 
 To learn more about recovering from a region-wide service disruption, see [Recover from a region-wide service disruption](../resiliency/recovery-loss-azure-region.md).

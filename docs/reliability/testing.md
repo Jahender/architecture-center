@@ -13,7 +13,7 @@ ms.custom:
 
 To test resiliency, you should verify how the end-to-end workload performs under intermittent failure conditions.
 
-Run tests in production using both synthetic and real user data. Test and production are rarely identical, so it's important to validate your application in production using a [blue-green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). This way, you’re testing the application in production under real conditions, so you can ensure that it will function as expected when fully deployed.
+Run tests in production using both synthetic and real user data. Test and production are rarely identical, so it's important to validate your application in production using a [blue-green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). This way, you're testing the application in production under real conditions, so you can ensure that it will function as expected when fully deployed.
 
 As part of your test plan, include:
 
@@ -59,17 +59,17 @@ Start with a good disaster recovery plan, and test it periodically to make sure 
 
 ### Failover and failback testing
 
-Test failover and failback to verify that your application’s dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also be sure that dependent services fail over and fail back in the correct order.
+Test failover and failback to verify that your application's dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also be sure that dependent services fail over and fail back in the correct order.
 
 If you are using [Azure Site Recovery](/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
 
 ### Simulation testing
 
-Simulation testing involves creating small, real-life situations. Simulations demonstrate the effectiveness of the solutions in the recovery plan and highlight any issues that weren’t adequately addressed.
+Simulation testing involves creating small, real-life situations. Simulations demonstrate the effectiveness of the solutions in the recovery plan and highlight any issues that weren't adequately addressed.
 
 As you perform simulation testing, follow best practices:
 
-- Conduct simulations in a manner that doesn’t disrupt actual business but feels like a real situation.
+- Conduct simulations in a manner that doesn't disrupt actual business but feels like a real situation.
 - Make sure that simulated scenarios are completely controllable. This means that, even if the recovery plan seems to be failing, you can restore the situation back to normal without causing any significant damage.
 - Inform management about when and how the simulation exercises will be conducted. Your plan should detail the time frame and the resources affected during the simulation.
 

@@ -29,7 +29,7 @@ To activate resources on demand, deploy solutions rapidly, minimize human error,
 
 ### Automate as many processes as possible
 
-The most reliable deployment processes are automated and *idempotent*—that is, repeatable to produce the same results.
+The most reliable deployment processes are automated and *idempotent* &mdash; that is, repeatable to produce the same results.
 
 - To automate provisioning of Azure resources, you can use [Terraform](/azure/virtual-machines/windows/infrastructure-automation#terraform),
     [Ansible](/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](/azure/virtual-machines/windows/infrastructure-automation#puppet),
@@ -50,11 +50,11 @@ This practice, called *infrastructure as code,* may use a declarative approach o
 
 ### Practice immutable infrastructure
 
-In other words, don’t modify infrastructure after it’s deployed to production. After ad hoc changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
+In other words, don't modify infrastructure after it's deployed to production. After ad hoc changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
 
 ### Automate and test deployment and maintenance tasks
 
-Distributed applications consist of multiple parts that must work together. Deployment should take advantage of proven mechanisms, such as scripts, that can update and validate configuration and automate the deployment process. Test all processes fully to ensure that errors don’t cause additional downtime.
+Distributed applications consist of multiple parts that must work together. Deployment should take advantage of proven mechanisms, such as scripts, that can update and validate configuration and automate the deployment process. Test all processes fully to ensure that errors don't cause additional downtime.
 
 ### Implement deployment security measures
 
@@ -86,8 +86,8 @@ If you choose this strategy, automate the redeployment process as much as possib
 
 With good use of staging and production environments, you can push updates to the production environment in a highly controlled way and minimize disruption from unanticipated deployment issues.
 
-- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that’s separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
-- [*Canary releases*](https://martinfowler.com/bliki/CanaryRelease.html) are similar to blue-green deployments. Instead of switching all traffic to the updated application, you route only a small portion of the traffic to the new deployment. If there’s a problem, revert to the old deployment. If not, gradually route more traffic to the new version. If you’re using Azure App Service, you can use the Testing in production feature to manage a canary release.
+- [*Blue-green deployment*](https://martinfowler.com/bliki/BlueGreenDeployment.html) involves deploying an update into a production environment that's separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. One way to do this is to use the [staging slots](/azure/app-service/web-sites-staged-publishing) available in Azure App Service to stage a deployment before moving it to production.
+- [*Canary releases*](https://martinfowler.com/bliki/CanaryRelease.html) are similar to blue-green deployments. Instead of switching all traffic to the updated application, you route only a small portion of the traffic to the new deployment. If there's a problem, revert to the old deployment. If not, gradually route more traffic to the new version. If you're using Azure App Service, you can use the Testing in production feature to manage a canary release.
 
 **Note** Azure Service Fabric supports [rolling upgrades](/azure/service-fabric/service-fabric-application-upgrade) to application services.
 
@@ -95,7 +95,7 @@ With good use of staging and production environments, you can push updates to th
 
 If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
 
-If you’re using Azure App Service, you can set up a last-known good site slot and use it to roll back from a web or API app deployment.
+If you're using Azure App Service, you can set up a last-known good site slot and use it to roll back from a web or API app deployment.
 
 ## Log and audit deployments
 

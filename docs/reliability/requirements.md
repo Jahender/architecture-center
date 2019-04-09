@@ -11,7 +11,7 @@ ms.custom:
 
 # Developing requirements for resilient Azure applications
 
-Building *resiliency* (recovering from failures and continuing to function) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. This is a process of asking and answering questions to identify and document your specific needs. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer’s availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
+Building *resiliency* (recovering from failures and continuing to function) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. This is a process of asking and answering questions to identify and document your specific needs. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
 
 Working through the following tasks can help you answer crucial questions and determine business requirements:
 
@@ -35,7 +35,7 @@ You also need to decompose workloads by service-level objective. If a service is
 
 ## Plan for usage patterns
 
-Identify differences in requirements during critical and non-critical periods. Are there certain critical periods when the system must be available? For example, a tax-filing application can't fail during a filing deadline and a video streaming service can’t lag during the big game. These are situations where you weigh cost and risk.
+Identify differences in requirements during critical and non-critical periods. Are there certain critical periods when the system must be available? For example, a tax-filing application can't fail during a filing deadline and a video streaming service can't lag during the big game. These are situations where you weigh cost and risk.
 
 - To ensure uptime and meet service-level agreements (SLAs) in critical periods, plan redundancy across several regions in case one fails, even if it costs more.
 - Conversely, during non-critical periods, run your application in a single region to minimize costs.
@@ -57,9 +57,9 @@ Use these measures to plan for redundancy and determine customer SLAs.
 Derive these values by conducting a risk assessment, and make sure you understand the cost and risk of downtime and data loss. These are nonfunctional requirements of a system and should be dictated by business requirements.
 
 - **Recovery time objective (RTO)** is the maximum acceptable time an application is unavailable after an incident.
-- **Recovery point objective (RPO)** is the maximum duration of data loss that’s acceptable during a disaster.
+- **Recovery point objective (RPO)** is the maximum duration of data loss that's acceptable during a disaster.
 
-**Note** If the MTTR value of *any* critical component in a highly available setup exceeds the system RTO, a failure in the system might cause an unacceptable business disruption. That is, you can’t restore the system within the defined RTO.
+**Note** If the MTTR value of *any* critical component in a highly available setup exceeds the system RTO, a failure in the system might cause an unacceptable business disruption. That is, you can't restore the system within the defined RTO.
 
 ## Determine workload availability targets
 
@@ -72,16 +72,16 @@ Everything else being equal, higher availability is better. But as you strive fo
 Here are some other considerations when defining an SLA:
 
 - To achieve four nines (99.99 percent), you can't rely on manual intervention to recover from failures. The application must be self-diagnosing and self-healing.
-- Beyond four nines, it’s challenging to detect outages quickly enough to meet the SLA.
+- Beyond four nines, it's challenging to detect outages quickly enough to meet the SLA.
 - Think about the time window that your SLA is measured against. The smaller the window, the tighter the tolerances. It doesn't make sense to define your SLA in terms of hourly or daily uptime.
 - Consider the MTBF and MTTR measurements. The lower your SLA, the less frequently the service can go down and the quicker the service must recover.
-- Get agreement from your customers for the availability targets of each piece of your application, and document it. Otherwise, your design may not meet the customers’ expectations.
+- Get agreement from your customers for the availability targets of each piece of your application, and document it. Otherwise, your design may not meet the customers' expectations.
 
 ### Identify dependencies
 
 Perform dependency-mapping exercises to identify internal and external dependencies. Examples include dependencies relating to security or identity (such as Active Directory for infrastructure-as-a-service [IaaS] solutions) or to third-party services (such as a payment provider or e-mail messaging service).
 
-Pay particularly attention to external dependencies that can be a single point of failure or can cause bottlenecks during an event. If a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can’t be a single point of failure in the system. One remedy is to have a fallback path in case the service fails. Alternatively, take other measures to recover from a failure in that service.
+Pay particularly attention to external dependencies that can be a single point of failure or can cause bottlenecks during an event. If a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system. One remedy is to have a fallback path in case the service fails. Alternatively, take other measures to recover from a failure in that service.
 
 Potential cumulative downtime for various SLA levels are shown in the following table.
 

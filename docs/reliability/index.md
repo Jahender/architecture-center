@@ -11,16 +11,16 @@ ms.custom:
 
 # Design reliable Azure applications
 
-Building a reliable application in the cloud is different from building one in an enterprise setting—in a cloud environment, you *scale out* instead of *scaling up*, keep costs low, and minimize the effects of failures on the system.
+Building a reliable application in the cloud is different from building one in an enterprise setting &mdash; in a cloud environment, you *scale out* instead of *scaling up*, keep costs low, and minimize the effects of failures on the system.
 
 Reliable applications are:
 
 - **Resilient** and recover gracefully from failures, and they continue to function with minimal downtime and data loss prior to full recovery.
 - **Highly available (HA)** and run as designed in a healthy state with no significant downtime.
 
-Understanding how these elements work together—and how they affect cost—is essential to building a reliable application. It can help you determine how much downtime is acceptable, the potential cost to your business, and which functions are necessary during a recovery.
+Understanding how these elements work together &mdash; and how they affect cost &mdash; is essential to building a reliable application. It can help you determine how much downtime is acceptable, the potential cost to your business, and which functions are necessary during a recovery.
 
-**Note** This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you’re looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../checklist/resiliency-per-service.md).
+**Note** This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you're looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../checklist/resiliency-per-service.md).
 
 ## Build for reliability
 
@@ -39,14 +39,14 @@ Identify your business needs, and build your reliability plan to address them. C
 
 - **Identify workloads and usage.** A *workload* is a distinct capability or task that is logically separated from other tasks, in terms of business logic and data storage requirements. Each workload has different requirements for availability, scalability, data consistency, and disaster recovery.
 - **Plan for usage patterns.** *Usage patterns* also play a role in requirements. Identify differences in requirements during critical and non-critical periods. For example, a tax-filing application can't fail during a filing deadline. To ensure uptime, plan redundancy across several regions in case one fails. Conversely, to minimize costs during non-critical periods, you can run your application in a single region.
-- **Establish availability metrics—*mean time to recovery* (MTTR) and *mean time between failures* (MTBF).** MTTR is the average time it takes to restore a component after a failure. MTBF is the runtime a component can reasonably expect to last between outages. Use these measures to determine where to add redundancy to cloud services and to determine service-level agreements (SLAs) for customers.  
+- **Establish availability metrics &mdash; *mean time to recovery* (MTTR) and *mean time between failures* (MTBF).** MTTR is the average time it takes to restore a component after a failure. MTBF is the runtime a component can reasonably expect to last between outages. Use these measures to determine where to add redundancy to cloud services and to determine service-level agreements (SLAs) for customers.  
 
-    **Note** If the MTTR value of *any* critical component in a highly available setup exceeds the system recovery time objective (RTO), a failure in the system might cause an unacceptable business disruption. That is, you can’t restore the system within the defined RTO.
-- **Establish recovery metrics—recovery time objective and recovery point objective (RPO).** *RTO* is the maximum acceptable time an application is unavailable after an incident. *RPO* is the maximum duration of data loss that is acceptable during a disaster. To derive these values, conduct a risk assessment and make sure you understand the cost and risk of downtime or data loss in your organization.
+    **Note** If the MTTR value of *any* critical component in a highly available setup exceeds the system recovery time objective (RTO), a failure in the system might cause an unacceptable business disruption. That is, you can't restore the system within the defined RTO.
+- **Establish recovery metrics &mdash; recovery time objective and recovery point objective (RPO).** *RTO* is the maximum acceptable time an application is unavailable after an incident. *RPO* is the maximum duration of data loss that is acceptable during a disaster. To derive these values, conduct a risk assessment and make sure you understand the cost and risk of downtime or data loss in your organization.
 - **Determine workload availability targets.** To ensure that application architecture meets your business requirements, define target SLAs for each workload. Account for the cost and complexity of meeting availability requirements, in addition to application dependencies.
 - **Understand service-level agreements.** In Azure, the SLA describes the Microsoft commitments for uptime and connectivity. If the SLA for a particular service is 99.9 percent, you should expect the service to be available 99.9 percent of the time.  
 
-    Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can’t be a single point of failure in the system.
+    Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system.
 
 For tips and best practices for developing requirements for reliable applications, see [Developing requirements for resilient Azure applications](./requirements.md).
 
@@ -132,7 +132,7 @@ Create a recovery plan, and make sure that it covers data restoration, network o
 
 - **Plan for Azure support interactions.** Before the need arises, establish a process for contacting Azure support.
 - **Document and test your disaster recovery plan.** Write a disaster recovery plan that reflects the business impact of application failures. Automate the recovery process as much as possible, and document any manual steps. Regularly test your disaster recovery process to validate and improve the plan.
-- **Failover manually.** Some systems can’t fail over automatically and require a manual failover. If an application fails over to a secondary region, perform an operational readiness test. Verify that the primary region is healthy and ready to receive traffic again before failing back. Determine what the reduced application functionality is and how the app informs users of temporary problems.
+- **Failover manually.** Some systems can't fail over automatically and require a manual failover. If an application fails over to a secondary region, perform an operational readiness test. Verify that the primary region is healthy and ready to receive traffic again before failing back. Determine what the reduced application functionality is and how the app informs users of temporary problems.
 - **Prepare for application failure.** Prepare for a range of failures, including faults that are handled automatically, those that result in reduced functionality, and those that cause the application to become unavailable. Build notifications into the system to inform users of temporary issues.
 - **Recover from data corruption.** If a failure happens in a data store, check for data inconsistencies when the store becomes available again, especially if the data was replicated. Restore corrupt data from a backup.
 - **Recover from a network outage.** You might be able to use cached data to run locally with reduced application functionality. If not, consider application downtime or fail over to another region. Store your data in an alternate location until connectivity is restored.

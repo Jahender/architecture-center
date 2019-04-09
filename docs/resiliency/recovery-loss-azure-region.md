@@ -8,9 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ms.custom: resiliency
 ---
-[!INCLUDE [header](../_includes/header.md)]
 
-# Azure resiliency technical guidance: recovery from a region-wide service disruption
+# Recover from a region-wide service disruption
 
 Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity.
 

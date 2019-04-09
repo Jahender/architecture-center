@@ -27,7 +27,7 @@ Understanding how these elements work together—and how they affect cost—is e
 This section describes six steps for building a reliable Azure application. Each step links to a section that further defines the process and terms.
 
 - [**Define requirements.**](#define-requirements) Develop availability and recovery requirements based on decomposed workloads and business needs.
-- [**Use architectural best practices.**](#Employ-architectural-best-practices) Follow proven practices, identify possible failure points in the architecture, and determine how the application will respond to failure.
+- [**Use architectural best practices.**](#use-architectural-best-practices) Follow proven practices, identify possible failure points in the architecture, and determine how the application will respond to failure.
 - [**Test with simulations and forced failovers.**](#test-with-simulations-and-forced-failovers) Simulate faults, trigger forced failovers, and test detection and recovery from these failures.
 - [**Deploy the application consistently.**](#deploy-the-application-consistently) Release to production using reliable and repeatable processes.
 - [**Monitor application health.**](#monitor-application-health) Detect failures, monitor indicators of potential failures, and gauge the health of your applications.
@@ -50,7 +50,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
 For tips and best practices for developing requirements for reliable applications, see [Developing requirements for resilient Azure applications](./requirements.md).
 
-## Employ architectural best practices
+## Use architectural best practices
 
 During the architectural phase, focus on implementing practices that meet your business requirements, identify failure points, and minimize the scope of failures.
 
@@ -68,7 +68,7 @@ During the architectural phase, focus on implementing practices that meet your b
   - **Protect your data.** Back up and validate data regularly, and make sure no single user account has access to both production and backup data.
   - **Plan for data recovery.** Make sure that your architecture supports a backup and replication strategy that provides for data recovery in a time frame sufficient to meet your service-level requirements. Account for all types of data your application uses, including reference data and databases.
 
-For tips and best practices for architecting reliable applications, see [Architecting Azure applications for resiliency and availability](architect.md).
+For tips and best practices for architecting reliable applications, see [Architecting Azure applications for resiliency and availability](./architect.md).
 
 ## Test with simulations and forced failovers
 
@@ -88,7 +88,7 @@ Testing for reliability requires measuring how the end-to-end workload performs 
 
 Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures, and repeat the process.
 
-For tips and best practices for testing for application reliability, see [Testing Azure applications for resilience and availability](testing.md).
+For tips and best practices for testing for application reliability, see [Testing Azure applications for resilience and availability](./testing.md).
 
 ## Deploy the application consistently
 
@@ -104,7 +104,7 @@ After an application is deployed to production, updates are a possible source of
 - **Log and audit deployments.** If you use staged deployment techniques, more than one version of your application is running in production. Implement a robust logging strategy to capture as much version-specific information as possible.
 - **Document the application release process.** Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-For tips and best practices for application reliability and deployment, see [Deploying Azure applications for resilience and availability](deploy.md).
+For tips and best practices for application reliability and deployment, see [Deploying Azure applications for resilience and availability](./deploy.md).
 
 ## Monitor application health
 
@@ -125,7 +125,7 @@ Implement best practices for monitoring and alerts in your application so you ca
 - **Monitor third-party services.** Log your invocations and correlate them with your application's health and diagnostic logging using a unique identifier.
 - **Train multiple operators to monitor the application and to perform manual recovery steps.** Make sure that there is always at least one trained operator active.
 
-For tips and best practices for monitoring for application reliability, see [Monitoring Azure application health](monitoring.md).
+For tips and best practices for monitoring for application reliability, see [Monitoring Azure application health](./monitoring.md).
 
 ## Respond to failures and disasters
 
@@ -142,4 +142,4 @@ Consider your VMs, storage, Azure SQL Database, and other Azure platform service
 - **Recover from a region-wide service disruption.** Region-wide service disruptions are uncommon, but you should have a strategy to address them, especially for critical applications. You might be able to redeploy the application to another region or redistribute traffic.
 - **Include service-specific guidance in your recovery plans.** [Explore links to specific services and disaster recovery.](../resiliency/disaster-recovery-azure-applications.md#service-specific-guidance)
 
-For tips and best practices for responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](disaster-recovery.md).
+For tips and best practices for responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](./disaster-recovery.md).

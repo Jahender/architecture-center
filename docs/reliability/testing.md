@@ -56,13 +56,13 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 Start with a good disaster recovery plan, and test it periodically to make sure it works.
 
-**Tip** For Azure Virtual Machines, you can use [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart/) to replicate and perform [disaster recovery drills](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill/) without impacting production applications or ongoing replication.
+**Tip** For Azure Virtual Machines, you can use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart/) to replicate and perform [disaster recovery drills](/azure/site-recovery/azure-to-azure-tutorial-dr-drill/) without impacting production applications or ongoing replication.
 
 ### Failover and failback testing
 
 Test failover and failback to verify that your application’s dependent services come back up in a synchronized manner during disaster recovery. Changes to systems and operations may affect failover and failback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test failover capabilities *before* they are required to compensate for a live problem. Also be sure that dependent services fail over and fail back in the correct order.
 
-If you are using [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure).
+If you are using [Azure Site Recovery](/azure/site-recovery/) to replicate VMs, run disaster recovery drills periodically by doing test failovers to validate your replication strategy. A test failover does not affect the ongoing VM replication or your production environment. For more information, see [Run a disaster recovery drill to Azure](/azure/site-recovery/site-recovery-test-failover-to-azure).
 
 ### Simulation testing
 
@@ -78,8 +78,8 @@ As you perform simulation testing, follow best practices:
 
 Configure and test health probes for your load balancers and traffic managers. Ensure that your health endpoint checks the critical parts of the system and responds appropriately.
 
-- For [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region, the failure of which should trigger a failover to another region.
-- For [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+- For [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview/), the health probe determines whether to fail over to another region. Your health endpoint should check any critical dependencies that are deployed within the same region, the failure of which should trigger a failover to another region.
+- For [Azure Load Balancer](/azure/load-balancer/load-balancer-overview/), the health probe determines whether to remove a VM from rotation. The health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
 
 For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 

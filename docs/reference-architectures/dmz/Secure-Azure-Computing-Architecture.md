@@ -43,17 +43,24 @@ The purpose of the VDSS is to protect DoD Mission Owner applications that are ho
 
 ***VDSS Security Requirements***
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/VDSS%20Reqs.JPG?raw=true) 
+
 **VDMS**
 
 The purpose of VDMS is to provide host security as well as shared data center services. The functions of VDMS can either run in the hub of your SCCA or the mission owner can deploy pieces of it in their own specific Azure subscription. This component can be provided within your Azure environment.
 
 ***VDMS Security Requirements***
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/VDMS%20Reqs.JPG?raw=true)
+
+
 **TCCM**
 
 TCCM is a business role. This individual will be responsible for managing the SCCA. Their duties include establishing plans and policies for account access to the cloud environment, ensuring identity and access management is operating properly, and to maintain the Cloud Credential Management Plan. This individual is appointed by the Authorizing Official. The BCAP, VDSS, and VDMS will provide the capabilities needed for the TCCM to perform their job function.
 
 ***TCCM Security Requirements***
+
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/TCCM%20Reqs.JPG?raw=true) 
 
 ## SACA Components and Planning Considerations 
 
@@ -116,6 +123,8 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
 Microsoft has several customers who have already gone through the full deployment or at least planning stages of their SACA environments. This has allowed us to get insight into the most common deployment scenario. The diagram below depicts the most common architecture. 
 
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/SACA%20v2_CommonScenario.jpg?raw=true)
+
 
 As you can see from the diagram, DoD customers typically subscribe to two of the DISA BCAPs, one of these lives on the west coast and the other lives on the east coast. An ExpressRoute Private peer is enabled to Azure at each DISA BCAP location. These ExpressRoute Peers are then linked to the Virtual Network Gateway in the DoD East and DoD Central Azure Regions. A SACA instance is deployed in the DoD East and DoD Central Azure region and all ingress and egress traffic flows through it to and from the Express Route connection to the DISA BCAP. 
 
@@ -154,6 +163,7 @@ This architecture is highly recommended by Microsoft, as it will meet SCCA requi
 
 Citrix has created a deployment template that deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/CitrixSACA.jpg?raw=true)
 
 
 Citrix Documentation and deployment script can be found here - https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca
@@ -163,7 +173,7 @@ Citrix Documentation and deployment script can be found here - https://github.co
 
 F5 has created two separate deployment templates covering two different architectures. The first one has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements for VDSS. The second adds a second layer of active-active highly available F5s. The purpose of this second layer is to allow for customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that is the case, the single layer of F5 appliances will work for most since that architecture includes IPS on the F5 devices.  
 
-
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/F5SACA.jpg?raw=true)
 
 F5 Documentation and deployment script can be found here - https://github.com/f5devcentral/f5-azure-saca 
 

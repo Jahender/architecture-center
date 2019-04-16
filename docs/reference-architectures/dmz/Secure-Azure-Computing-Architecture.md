@@ -159,7 +159,7 @@ This architecture is highly recommended by Microsoft, as it will meet SCCA requi
     - Used for controlling which types of traffic can traverse to certain endpoints
 
 
-## Citrix SACA Deployment 
+**Citrix SACA Deployment**
 
 Citrix has created a deployment template that deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
@@ -169,7 +169,7 @@ Citrix has created a deployment template that deploys two layers of highly avail
 Citrix Documentation and deployment script can be found here - https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca
 
 
-## F5 SACA Deployment
+ **F5 SACA Deployment**
 
 F5 has created two separate deployment templates covering two different architectures. The first one has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements for VDSS. The second adds a second layer of active-active highly available F5s. The purpose of this second layer is to allow for customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that is the case, the single layer of F5 appliances will work for most since that architecture includes IPS on the F5 devices.  
 

@@ -38,7 +38,7 @@ can be co-located with other components of the SCCA. It is highly
 recommended that this component is deployed using physical hardware.
 Below you will find the list of BCAP security requirements.
 
-  **Req. ID**   **BCAP Security Requirements**
+  ***Req. ID***   **BCAP Security Requirements**
   ------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   2.1.1.1.1     The BCAP shall provide the capability to detect and prevent malicious code injection into the DISN originating from the CSE
   2.1.1.1.2     The BCAP shall provide the capability to detect and thwart single and multiple node DOS attacks

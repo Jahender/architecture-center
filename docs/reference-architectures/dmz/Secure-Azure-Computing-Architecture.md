@@ -34,6 +34,8 @@ The purpose of the BCAP is to protect the DISN from attacks originating in the c
 
 ***BCAP Security Requirements***
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/BCAP%20Reqs.JPG?raw=true)
+
 
 **VDSS**
 
@@ -58,6 +60,7 @@ TCCM is a business role. This individual will be responsible for managing the SC
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in azure, as well as enable the TCCM. This architecture is modular, which means that all of the pieces of VDSS and VDMS can live in a centralized hub or some of the controls can be met in the mission owner space or even on-premises. The recommendation of our Microsoft team is to co-locate the VDSS and VDMS components into a central Virtual Net that all Mission Owners can connect through. The diagram below depicts our recommended architecture. 
 
 
+![](https://github.com/Jahender/architecture-center/blob/master/docs/reference-architectures/dmz/SACAimages/SACA%20v2_Generic.jpg?raw=true "SACA Generic Diagram")
 
 When planning your SCCA compliancy strategy and technical architecture, there are many things to consider. It is important that the following topics are taken into consideration from the beginning, as every customer will need to cover these. The topics below have been issues that have come up with real DoD customers and tend to slow the planning and execution down. 
 
